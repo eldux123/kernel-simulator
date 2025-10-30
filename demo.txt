@@ -1,0 +1,198 @@
+# DEMO REPRODUCIBLE - Simulador de Kernel con Sincronización
+# ============================================================
+# Instrucciones: Copia y pega cada bloque de números en la consola cuando ejecutes Main.exe
+
+# --- ESCENARIO 1: Productor-Consumidor Básico ---
+# Crear 2 productores y 2 consumidores, ejecutar y ver resultados
+
+2           # Crear proceso productor
+20          # Burst: 20 ticks
+4           # Páginas: 4
+
+2           # Crear otro productor
+25          # Burst: 25 ticks
+4           # Páginas: 4
+
+3           # Crear proceso consumidor
+22          # Burst: 22 ticks
+4           # Páginas: 4
+
+3           # Crear otro consumidor
+18          # Burst: 18 ticks
+4           # Páginas: 4
+
+4           # Mostrar procesos (ver que están creados)
+
+7           # Ejecutar varios ticks
+50          # Cantidad: 50
+
+4           # Mostrar procesos (ver estado actual)
+
+11          # Mostrar buffer (ver sincronización)
+
+8           # Ver estadísticas resumidas
+
+# --- ESCENARIO 2: Con Hilos (Multi-threading) ---
+# Crear proceso productor con 3 hilos
+
+2           # Crear proceso productor
+30          # Burst: 30 (será distribuido entre hilos)
+4           # Páginas: 4
+
+14          # Crear hilos en proceso
+1           # PID: 1 (el productor recién creado, ajustar según tu caso)
+3           # Número de hilos: 3
+10          # Burst por hilo: 10
+
+15          # Mostrar hilos del proceso
+1           # PID: 1
+
+3           # Crear proceso consumidor
+35          # Burst: 35
+4           # Páginas: 4
+
+7           # Ejecutar varios ticks
+80          # Cantidad: 80
+
+15          # Mostrar hilos del proceso (ver progreso)
+1           # PID: 1
+
+8           # Ver estadísticas
+
+# --- ESCENARIO 3: Demostración Completa ---
+# Reset: reiniciar el programa y ejecutar esto
+
+# Paso 1: Crear múltiples procesos
+2           # Productor 1
+15          # burst
+4           # pages
+
+2           # Productor 2
+20          # burst
+4           # pages
+
+3           # Consumidor 1
+18          # burst
+4           # pages
+
+3           # Consumidor 2
+12          # burst
+4           # pages
+
+1           # Proceso normal (para comparar)
+10          # burst
+4           # pages
+
+# Paso 2: Ver estado inicial
+4           # Mostrar procesos
+
+# Paso 3: Ejecutar paso a paso
+6           # Avanzar 1 tick
+6           # Avanzar 1 tick
+6           # Avanzar 1 tick
+11          # Ver buffer
+
+# Paso 4: Ejecutar bloque
+7           # Ejecutar varios ticks
+100         # Cantidad
+
+# Paso 5: Análisis completo
+8           # Estadísticas resumidas
+9           # Reporte completo detallado
+10          # Marcos de memoria
+11          # Buffer final
+
+# --- ESCENARIO 4: Comparación FIFO vs LRU ---
+# Primera ejecución con FIFO
+
+13          # Cambiar algoritmo de paginación
+1           # Seleccionar FIFO
+
+2           # Crear productor
+30          # burst
+8           # pages (más páginas para ver page faults)
+
+3           # Crear consumidor
+30          # burst
+8           # pages
+
+7           # Ejecutar
+100         # ticks
+
+10          # Ver memoria (anotar Hit Rate con FIFO)
+
+# Reiniciar programa y repetir con LRU:
+13          # Cambiar algoritmo
+2           # Seleccionar LRU
+
+# ... repetir creación de procesos y comparar Hit Rate
+
+# --- ESCENARIO 5: Bloqueos y Desbloqueos ---
+# Demostrar que el desbloqueo automático funciona
+
+# Saturar con productores
+2
+30
+4
+2
+30
+4
+2
+30
+4
+
+# Solo 1 consumidor (se llenarán el buffer)
+3
+50
+4
+
+4           # Mostrar procesos (verás WAITING)
+
+7           # Ejecutar
+30          # ticks
+
+11          # Ver buffer (lleno)
+
+4           # Ver procesos (productores en WAITING)
+
+7           # Ejecutar más
+50          # ticks
+
+4           # Ver cómo se desbloquean automáticamente
+
+8           # Estadísticas finales
+
+0           # Salir
+
+# ============================================================
+# NOTAS PARA LA DEMO EN CLASE:
+# ============================================================
+# 
+# 1. PREPARACIÓN:
+#    - Compilar: g++ -o Main.exe Main.cpp -std=c++17
+#    - Tener este archivo abierto en otro monitor/ventana
+#
+# 2. PUNTOS CLAVE A EXPLICAR:
+#    - Productor-Consumidor con semáforos (empty, full, mutex)
+#    - Estados de procesos (READY, RUNNING, WAITING, TERM)
+#    - Desbloqueo automático cuando cambia el buffer
+#    - Hilos dentro de procesos (multi-threading)
+#    - Algoritmos de paginación (FIFO vs LRU)
+#    - Estadísticas y tablas visuales
+#
+# 3. ORDEN SUGERIDO:
+#    a) Escenario 1: Demo básica prod-cons (5 min)
+#    b) Escenario 2: Mostrar hilos (3 min)
+#    c) Escenario 5: Bloqueos/desbloqueos (4 min)
+#    d) Escenario 3: Reporte completo (3 min)
+#
+# 4. BACKUP:
+#    Si algo falla, usar Escenario 3 que es el más completo
+#
+# 5. TIPS:
+#    - Pausar después de cada tabla importante
+#    - Explicar las columnas de las tablas
+#    - Señalar los valores clave (waiting time, items prod/cons)
+#    - Mostrar el gráfico de barras ASCII
+#
+# ============================================================
