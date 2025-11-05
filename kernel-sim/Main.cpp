@@ -8,6 +8,10 @@
 #include <algorithm>
 #include <cmath>
 #include <deque>
+#ifdef _WIN32
+#include <windows.h>
+#endif
+
 
 const int DEFAULT_QUANTUM = 3;
 const int DEFAULT_NUM_FRAMES = 4;
@@ -946,6 +950,11 @@ public:
 };
 
 int main() {
+#ifdef _WIN32
+    // Switch Windows console to UTF-8
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
+#endif
     MemoryManager mem(DEFAULT_NUM_FRAMES);
     ProducerConsumer prodCons(DEFAULT_BUFFER_SIZE);
     SchedulerRR sched(mem, prodCons, DEFAULT_QUANTUM);
