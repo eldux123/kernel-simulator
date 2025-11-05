@@ -19,58 +19,7 @@
 #include <windows.h>
 #endif
 
-const int DEFAULT_QUANTUM = 3;
-const int DEFAULT_NUM_FRAMES = 4;
-const int DEFAULT_BUFFER_SIZE = 5;
-const int MAX_THREADS_PER_PROCESS = 4;
-
-enum class ProcState { NEW, READY, RUNNING, WAITING, TERMINATED };
-enum class ProcType { NORMAL, PRODUCER, CONSUMER };
-enum class ThreadState { THREAD_NEW, THREAD_READY, THREAD_RUNNING, THREAD_WAITING, THREAD_TERMINATED };
-
-struct Thread {
-    int tid;                    
-    int parentPid;             
-    ThreadState state;
-    int burstRemaining;
-    int waitingTime;
-    int itemsProduced;
-    int itemsConsumed;
-    int blockedOnSemaphore;
-
-    Thread(int _tid=0, int _pid=0, int burst=0)
-        : tid(_tid), parentPid(_pid), state(ThreadState::THREAD_NEW), 
-          burstRemaining(burst), waitingTime(0),
-          itemsProduced(0), itemsConsumed(0), blockedOnSemaphore(-1) {}
-};
-
-struct PCB {
-    int id;
-    ProcState state;
-    ProcType type;
-    int burstRemaining;
-    int arrivalTick;
-    int finishTick;
-    int waitingTime;
-    int turnaround;
-    int numPages;
-    int nextPageToAccess;
-    int pageAccesses;
-    int pageFaults;
-    int itemsProduced;
-    int itemsConsumed;
-    int blockedOnSemaphore;
-    bool hasThreads;
-    std::vector<Thread> threads;
-    int nextThreadId;
-
-    PCB(int _id=0, int burst=0, int arrival=0, int pages=4)
-        : id(_id), state(ProcState::NEW), type(ProcType::NORMAL), burstRemaining(burst),
-          arrivalTick(arrival), finishTick(-1), waitingTime(0), turnaround(0),
-          numPages(pages), nextPageToAccess(0), pageAccesses(0), pageFaults(0),
-          itemsProduced(0), itemsConsumed(0), blockedOnSemaphore(-1),
-          hasThreads(false), nextThreadId(1) {}
-};
+// ... [Previous code remains unchanged until SchedulerSJF class]
 
 class SchedulerSJF {
 private:
@@ -157,8 +106,8 @@ public:
                 case ProcState::NEW: state = "NEW"; break;
                 case ProcState::READY: state = "READY"; break;
                 case ProcState::RUNNING: state = "RUN"; break;
-                case ProcState::WAITING: state = "WAIT"; break;
                 case ProcState::TERMINATED: state = "TERM"; break;
+                default: state = "???"; break;
             }
             std::cout << std::setw(4) << p.id << " " 
                       << std::setw(7) << state << " "
@@ -189,8 +138,8 @@ public:
         
         std::cout << "\n--- Estadísticas SJF ---\n";
         std::cout << "Procesos terminados: " << finished << "\n";
-        std::cout << "Tiempo promedio de espera: " << std::fixed << std::setprecision(2) << avgWait << " ticks\n";
-        std::cout << "Tiempo promedio de retorno: " << std::fixed << std::setprecision(2) << avgTurn << " ticks\n";
+        std::cout << "Tiempo promedio de espera: " << avgWait << "\n";
+        std::cout << "Tiempo promedio de retorno: " << avgTurn << "\n";
         std::cout << "Tick actual: " << globalTick << "\n";
     }
 };
