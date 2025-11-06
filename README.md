@@ -71,7 +71,7 @@ HEAP ALLOCATOR (16-19)
 
 ## 📖 Documentación
 
-- **Informe Técnico**: `INFORME TÉCNICO CONSOLIDADO.docx` (800+ líneas)
+- **Informe Técnico**: `INFORME TÉCNICO CONSOLIDADO.pdf` (800+ líneas)
 - **Scripts de Prueba**: `docs/*.txt` (16 archivos)
 
 ## 🧪 Scripts de Prueba
