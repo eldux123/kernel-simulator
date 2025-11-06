@@ -1,4 +1,4 @@
-#AUTORES: Cristian Cabarcas, Mateo Sepúlveda y Erick Guerrero
+# AUTORES: Cristian Cabarcas, Mateo Sepúlveda y Erick Guerrero
 
 # 🖥️ Kernel Simulator
 
