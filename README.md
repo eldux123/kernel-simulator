@@ -1,3 +1,5 @@
+#AUTORES: Cristian Cabarcas, Mateo Sepúlveda y Erick Guerrero
+
 # 🖥️ Kernel Simulator
 
 Simulador completo de núcleo de sistema operativo desarrollado en C++17 que integra gestión de memoria, planificación de procesos, sincronización y E/S.
