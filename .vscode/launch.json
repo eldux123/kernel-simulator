@@ -1,8 +1,8 @@
-{
+﻿{
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "C/C++: Build and Debug",
+            "name": "Run Main.cpp",
             "type": "cppdbg",
             "request": "launch",
             "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",

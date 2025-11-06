@@ -1,0 +1,71 @@
+# ===================================================================
+# EXPERIMENTO: Sincronización - Filósofos Cenando
+# ===================================================================
+# Objetivo: Demostrar prevención de deadlock en filósofos
+# Configuración: 5 filósofos, 5 tenedores
+# ===================================================================
+
+# Crear 5 procesos filósofos
+4
+30
+3
+
+4
+30
+3
+
+4
+30
+3
+
+4
+30
+3
+
+4
+30
+3
+
+# Ver procesos creados
+7
+
+# Ver estado inicial de filósofos
+16
+
+# Ejecutar 15 ticks
+14
+15
+
+# Ver estado de filósofos (algunos comiendo, otros pensando)
+16
+
+# Ver procesos (algunos pueden estar WAITING por tenedores)
+7
+
+# Ejecutar 20 ticks más
+14
+20
+
+# Ver estado de filósofos
+16
+
+# Ejecutar hasta completar
+14
+30
+
+# Ver reporte final
+25
+16
+26
+
+# Resultados esperados:
+# - Prevención de deadlock (orden asimétrico de adquisición)
+# - Filósofos pares: izquierda → derecha
+# - Filósofos impares: derecha → izquierda
+# - Máximo 2 filósofos comiendo simultáneamente
+# - No hay deadlock (ciclo de espera imposible)
+# - Todos los filósofos eventualmente comen (no starvation)
+# - Balance en número de comidas por filósofo
+
+# Salir
+0

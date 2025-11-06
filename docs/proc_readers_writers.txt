@@ -1,0 +1,71 @@
+# ===================================================================
+# EXPERIMENTO: Sincronización - Lectores-Escritores
+# ===================================================================
+# Objetivo: Demostrar sincronización con prioridad a lectores
+# Configuración: 3 lectores, 2 escritores
+# ===================================================================
+
+# Crear lectores
+5
+20
+3
+
+5
+25
+3
+
+5
+18
+3
+
+# Crear escritores
+6
+22
+3
+
+6
+20
+3
+
+# Ver procesos creados
+7
+
+# Ver estado inicial
+17
+
+# Ejecutar 10 ticks
+14
+10
+
+# Ver estado de lectores-escritores
+17
+
+# Ver procesos (algunos pueden estar WAITING)
+7
+
+# Ejecutar 15 ticks más
+14
+15
+
+# Ver estado de lectores-escritores
+17
+
+# Ejecutar hasta completar
+14
+30
+
+# Ver reporte final
+25
+17
+26
+
+# Resultados esperados:
+# - Múltiples lectores simultáneos (readCount > 1)
+# - Escritor en exclusión total (bloquea lectores y escritores)
+# - Prioridad a lectores (pueden causar starvation de escritores)
+# - Mutex protege readCount correctamente
+# - Semáforo wrt garantiza exclusión mutua para escritores
+# - Lecturas > Escrituras (por prioridad de lectores)
+
+# Salir
+0

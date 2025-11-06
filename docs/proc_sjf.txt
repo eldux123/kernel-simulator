@@ -1,0 +1,60 @@
+# ===================================================================
+# EXPERIMENTO: Procesos con Shortest Job First (SJF)
+# ===================================================================
+# Objetivo: Demostrar SJF minimiza tiempo promedio de espera
+# Configuración: 4 procesos con ráfagas variadas
+# ===================================================================
+
+# Crear procesos en orden aleatorio de llegada
+# (No importa el orden de creación, SJF los ordena por burst)
+
+# Proceso 1 - Burst largo
+1
+30
+5
+
+# Proceso 2 - Burst corto (debería ejecutarse primero)
+1
+8
+3
+
+# Proceso 3 - Burst medio
+1
+15
+4
+
+# Proceso 4 - Burst muy corto (debería ejecutarse segundo)
+1
+5
+2
+
+# Ver procesos en cola
+7
+
+# Ejecutar y observar orden de ejecución
+14
+20
+
+# Ver estadísticas intermedias
+25
+7
+
+# Completar ejecución
+14
+40
+
+# Ver reporte final
+26
+
+# Resultados esperados SJF:
+# Orden de ejecución: PID 4 (5) → PID 2 (8) → PID 3 (15) → PID 1 (30)
+# - Minimiza tiempo promedio de espera
+# - Procesos cortos terminan rápido
+# - Proceso largo espera más tiempo (puede causar starvation)
+#
+# Comparativa con RR:
+# SJF: Menor tiempo promedio de espera
+# RR:  Mayor fairness, no hay starvation
+
+# Salir
+0

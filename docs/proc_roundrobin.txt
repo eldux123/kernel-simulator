@@ -1,0 +1,54 @@
+# ===================================================================
+# EXPERIMENTO: Procesos con Round Robin
+# ===================================================================
+# Objetivo: Demostrar planificación Round Robin con quantum=3
+# Configuración: 4 procesos con diferentes ráfagas
+# ===================================================================
+
+# Crear proceso 1 (burst corto)
+1
+10
+3
+
+# Crear proceso 2 (burst medio)
+1
+15
+4
+
+# Crear proceso 3 (burst largo)
+1
+25
+5
+
+# Crear proceso 4 (burst medio)
+1
+18
+4
+
+# Ver procesos creados
+7
+
+# Ejecutar 30 ticks y observar alternancia
+14
+30
+
+# Ver estadísticas
+25
+
+# Ejecutar hasta completar todos
+14
+40
+
+# Ver reporte final
+26
+7
+
+# Resultados esperados:
+# - Alternancia cada 3 ticks (quantum)
+# - Proceso 1 termina primero (~10 ticks)
+# - Procesos 2 y 4 terminan en tiempo similar (~15-18 ticks)
+# - Proceso 3 termina último (~25 ticks)
+# - Fairness: todos los procesos avanzan proporcionalmente
+
+# Salir
+0

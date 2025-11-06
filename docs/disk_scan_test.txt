@@ -1,0 +1,77 @@
+# ===================================================================
+# EXPERIMENTO: Planificación de Disco - SCAN (Elevador)
+# ===================================================================
+# Objetivo: Demostrar SCAN con movimiento bidireccional
+# Secuencia de cilindros: 98, 183, 37, 122, 14, 124, 65, 67
+# Posición inicial: 53, dirección: UP
+# ===================================================================
+
+# Paso 1: Configurar algoritmo SCAN
+20
+3
+
+# Paso 2: Agregar secuencia de solicitudes de disco
+18
+98
+
+18
+183
+
+18
+37
+
+18
+122
+
+18
+14
+
+18
+124
+
+18
+65
+
+18
+67
+
+# Paso 3: Ver estado inicial del disco
+21
+
+# Paso 4: Procesar todas las solicitudes
+19
+19
+19
+19
+19
+19
+19
+19
+
+# Paso 5: Ver estadísticas finales con gráfico
+21
+
+# Resultados esperados SCAN:
+# Secuencia: 53 → 65 → 67 → 98 → 122 → 124 → 183 → 37 → 14
+# (Subiendo hasta 199, luego bajando)
+# Movimientos por acceso:
+#   53→65:   12
+#   65→67:   2
+#   67→98:   31
+#   98→122:  24
+#   122→124: 2
+#   124→183: 59
+#   183→37:  146 (cambio de dirección)
+#   37→14:   23
+# Total: 299 cilindros
+# Promedio: 37.4 cilindros/solicitud
+# 
+# Comparativa:
+# FCFS: 640 cilindros (baseline)
+# SSTF: 236 cilindros (mejor)
+# SCAN: 299 cilindros (intermedio, pero predecible y sin starvation)
+# 
+# Observación: SCAN es justo, previene starvation de cilindros extremos
+
+# Salir
+0

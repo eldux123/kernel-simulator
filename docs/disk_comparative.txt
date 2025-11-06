@@ -1,0 +1,94 @@
+# ===================================================================
+# EXPERIMENTO: Comparativa Disco (FCFS vs SSTF vs SCAN)
+# ===================================================================
+# Objetivo: Comparar los 3 algoritmos con la misma secuencia
+# Secuencia estándar: 98, 183, 37, 122, 14, 124, 65, 67
+# Posición inicial: 53
+# ===================================================================
+
+# NOTA: Ejecutar 3 veces cambiando el algoritmo en paso 1
+
+# Paso 1: Configurar algoritmo
+# Primera ejecución:  20 + 1 (FCFS)
+# Segunda ejecución:  20 + 2 (SSTF)
+# Tercera ejecución:  20 + 3 (SCAN)
+20
+1
+
+# Paso 2: Agregar secuencia estándar de solicitudes
+18
+98
+18
+183
+18
+37
+18
+122
+18
+14
+18
+124
+18
+65
+18
+67
+
+# Paso 3: Ver estado inicial
+21
+
+# Paso 4: Procesar todas las solicitudes
+19
+19
+19
+19
+19
+19
+19
+19
+
+# Paso 5: Ver estadísticas finales con gráfico ASCII
+21
+
+# Salir
+0
+
+# ===================================================================
+# TABLA COMPARATIVA DE RESULTADOS:
+# ===================================================================
+# 
+# Algoritmo | Movimiento Total | Promedio | Mejora vs FCFS | Características
+# ----------|------------------|----------|----------------|------------------
+# FCFS      | 640 cilindros    | 80.0     | 0% (baseline)  | Simple, justo, ineficiente
+# SSTF      | 236 cilindros    | 29.5     | 63% mejor      | Óptimo local, puede causar starvation
+# SCAN      | 299 cilindros    | 37.4     | 53% mejor      | Predecible, sin starvation
+#
+# ===================================================================
+# ANÁLISIS Y CONCLUSIONES:
+# ===================================================================
+#
+# 1. FCFS (First Come First Served):
+#    - Ventajas: Simple, justo, fácil de implementar
+#    - Desventajas: Alto movimiento total, no optimiza recorrido
+#    - Uso recomendado: Sistemas con baja carga de disco
+#
+# 2. SSTF (Shortest Seek Time First):
+#    - Ventajas: Mínimo movimiento local, muy eficiente
+#    - Desventajas: Puede causar starvation en cilindros extremos
+#    - Uso recomendado: Sistemas con alta carga, accesos distribuidos
+#
+# 3. SCAN (Elevador):
+#    - Ventajas: Balance entre eficiencia y justicia, predecible
+#    - Desventajas: Más movimiento que SSTF, pero previene starvation
+#    - Uso recomendado: Sistemas multiusuario, cargas variables
+#
+# TRADE-OFFS:
+# - Rendimiento puro: SSTF > SCAN > FCFS
+# - Justicia/Fairness: FCFS = SCAN > SSTF
+# - Predecibilidad: SCAN > FCFS > SSTF
+# - Complejidad: FCFS < SSTF < SCAN
+#
+# RECOMENDACIÓN:
+# - Uso general: SCAN (mejor balance rendimiento/justicia)
+# - Alto rendimiento: SSTF (si no hay problema de starvation)
+# - Sistemas críticos: FCFS (máxima predecibilidad)
+# ===================================================================

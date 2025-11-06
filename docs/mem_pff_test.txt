@@ -1,0 +1,60 @@
+# ===================================================================
+# EXPERIMENTO: Memoria Virtual con PFF (Avanzado)
+# ===================================================================
+# Objetivo: Demostrar adaptabilidad de PFF según frecuencia de fallos
+# Configuración: 4 marcos de memoria, procesos con diferentes patrones
+# ===================================================================
+
+# Paso 1: Configurar memoria con PFF
+29
+3
+
+# Paso 2: Crear proceso con alta demanda (thrashing potencial)
+1
+40
+8
+
+# Paso 3: Crear proceso con baja demanda
+1
+15
+3
+
+# Paso 4: Crear proceso con demanda media
+1
+25
+5
+
+# Paso 5: Ver estado inicial de memoria
+27
+
+# Paso 6: Ejecutar 20 ticks y observar adaptación
+14
+20
+
+# Paso 7: Ver estadísticas intermedias
+7
+25
+27
+
+# Paso 8: Ejecutar 30 ticks más
+14
+30
+
+# Paso 9: Ver reporte final
+26
+27
+
+# Resultados esperados PFF:
+# - PFF asigna más frames a proceso con alta demanda (PID 1)
+# - Proceso con baja demanda (PID 2) cede frames
+# - Prevención de thrashing
+# - Page fault rate balanceado ≈ 45-55%
+# - Mejor rendimiento global que FIFO/LRU
+
+# Comparativa de hit rates esperados:
+# FIFO: 30-40%
+# LRU:  40-50%
+# PFF:  50-60% (adaptativo)
+
+# Salir
+0

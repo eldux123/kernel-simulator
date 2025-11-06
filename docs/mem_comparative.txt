@@ -1,0 +1,65 @@
+# ===================================================================
+# EXPERIMENTO: Comparativa Memoria (FIFO vs LRU vs PFF)
+# ===================================================================
+# Objetivo: Comparar los 3 algoritmos con la misma carga
+# Configuración: 4 marcos, 4 procesos, 60 ticks
+# ===================================================================
+
+# NOTA: Ejecutar 3 veces cambiando el algoritmo en paso 1
+
+# Paso 1: Configurar algoritmo
+# Primera ejecución:  29 + 1 (FIFO)
+# Segunda ejecución:  29 + 2 (LRU)
+# Tercera ejecución:  29 + 3 (PFF)
+29
+1
+
+# Paso 2: Crear carga de trabajo uniforme
+1
+15
+4
+
+1
+20
+5
+
+1
+18
+4
+
+1
+22
+6
+
+# Paso 3: Ver estado inicial
+7
+27
+
+# Paso 4: Ejecutar 60 ticks
+14
+60
+
+# Paso 5: Ver reporte completo y estadísticas
+26
+27
+25
+
+# Salir
+0
+
+# ===================================================================
+# MÉTRICAS A COMPARAR:
+# ===================================================================
+# 
+# Algoritmo | Page Faults | Hit Rate | Observaciones
+# ----------|-------------|----------|----------------------------------
+# FIFO      | ~45-55      | 30-40%   | Simple, predecible, no óptimo
+# LRU       | ~40-50      | 40-50%   | Mejor que FIFO, overhead moderado
+# PFF       | ~35-45      | 50-60%   | Adaptativo, mejor rendimiento
+#
+# Conclusiones esperadas:
+# - FIFO: Baseline, peor rendimiento
+# - LRU: Mejora 10-15% sobre FIFO
+# - PFF: Mejora 15-25% sobre FIFO, 5-10% sobre LRU
+# - PFF es óptimo para cargas variables
+# ===================================================================

@@ -1,0 +1,61 @@
+# ===================================================================
+# EXPERIMENTO: Sincronización - Productor-Consumidor
+# ===================================================================
+# Objetivo: Demostrar sincronización con buffer limitado
+# Configuración: 2 productores, 2 consumidores, buffer=5
+# ===================================================================
+
+# Crear productores
+2
+20
+3
+
+2
+25
+3
+
+# Crear consumidores
+3
+22
+3
+
+3
+18
+3
+
+# Ver procesos creados
+7
+
+# Ver estado inicial del buffer
+15
+
+# Ejecutar 10 ticks
+14
+10
+
+# Ver estado del buffer (debería tener items)
+15
+
+# Ver procesos (algunos pueden estar WAITING)
+7
+
+# Ejecutar 20 ticks más
+14
+20
+
+# Ver estado final del buffer
+15
+
+# Ver estadísticas finales
+25
+26
+
+# Resultados esperados:
+# - Productores bloqueados cuando buffer lleno (WAITING)
+# - Consumidores bloqueados cuando buffer vacío (WAITING)
+# - Buffer nunca excede capacidad máxima (5 items)
+# - Exclusión mutua garantizada (no race conditions)
+# - Fairness: orden FIFO en cola de semáforos
+
+# Salir
+0

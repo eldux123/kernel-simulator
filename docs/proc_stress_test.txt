@@ -1,0 +1,122 @@
+# ===================================================================
+# EXPERIMENTO: Estrés del Sistema - Carga Completa
+# ===================================================================
+# Objetivo: Probar todos los subsistemas bajo carga alta
+# Configuración: Múltiples procesos, disco, E/S, sincronización
+# ===================================================================
+
+# PASO 1: Configurar sistema
+29
+3
+20
+3
+
+# PASO 2: Crear procesos normales
+1
+30
+6
+1
+25
+5
+1
+20
+4
+
+# PASO 3: Crear procesos de sincronización
+2
+25
+4
+3
+20
+4
+4
+30
+3
+5
+22
+3
+6
+18
+3
+
+# PASO 4: Ver estado inicial
+7
+27
+
+# PASO 5: Agregar carga de disco
+18
+50
+18
+120
+18
+30
+18
+180
+18
+90
+
+# PASO 6: Agregar carga de E/S
+22
+1
+1
+PRINTER
+15
+22
+2
+2
+DISK
+10
+22
+3
+3
+NETWORK
+12
+
+# PASO 7: Ver estado completo del sistema
+7
+15
+16
+17
+21
+24
+27
+
+# PASO 8: Ejecutar 30 ticks
+14
+30
+
+# PASO 9: Ver estadísticas intermedias
+25
+
+# PASO 10: Procesar disco y E/S
+19
+19
+19
+23
+23
+
+# PASO 11: Ejecutar 40 ticks más
+14
+40
+
+# PASO 12: Ver reporte final completo
+26
+7
+27
+21
+24
+15
+16
+17
+
+# Resultados esperados:
+# - Sistema maneja múltiples subsistemas simultáneamente
+# - Procesos normales se ejecutan con Round Robin
+# - Sincronización funciona sin deadlock
+# - Disco y E/S procesan solicitudes eficientemente
+# - Memoria maneja múltiples procesos con PFF
+# - No hay race conditions ni corrupción de datos
+# - Sistema estable bajo alta carga
+
+# Salir
+0

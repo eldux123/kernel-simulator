@@ -1,0 +1,51 @@
+# ===================================================================
+# EXPERIMENTO: Memoria Virtual con FIFO
+# ===================================================================
+# Objetivo: Comparar comportamiento de FIFO con diferentes cargas
+# Configuración: 4 marcos de memoria, 3 procesos con 5 páginas c/u
+# ===================================================================
+
+# Paso 1: Configurar memoria con FIFO
+29
+1
+
+# Paso 2: Crear 3 procesos con alta demanda de páginas
+1
+20
+5
+
+1
+25
+5
+
+1
+30
+5
+
+# Paso 3: Ver estado inicial de memoria
+27
+
+# Paso 4: Ejecutar 30 ticks
+14
+30
+
+# Paso 5: Ver procesos y estadísticas
+7
+25
+27
+
+# Paso 6: Ejecutar 20 ticks más
+14
+20
+
+# Paso 7: Ver reporte final
+26
+27
+
+# Resultados esperados FIFO:
+# - Alta tasa de page faults (no considera frecuencia de uso)
+# - Reemplazo secuencial sin optimización
+# - Page fault rate ≈ 60-70%
+
+# Salir
+0

@@ -1,0 +1,72 @@
+# ===================================================================
+# EXPERIMENTO: Planificación de Disco - SSTF
+# ===================================================================
+# Objetivo: Demostrar SSTF (Shortest Seek Time First)
+# Secuencia de cilindros: 98, 183, 37, 122, 14, 124, 65, 67
+# Posición inicial: 53
+# ===================================================================
+
+# Paso 1: Configurar algoritmo SSTF
+20
+2
+
+# Paso 2: Agregar secuencia de solicitudes de disco
+18
+98
+
+18
+183
+
+18
+37
+
+18
+122
+
+18
+14
+
+18
+124
+
+18
+65
+
+18
+67
+
+# Paso 3: Ver estado inicial del disco
+21
+
+# Paso 4: Procesar todas las solicitudes
+19
+19
+19
+19
+19
+19
+19
+19
+
+# Paso 5: Ver estadísticas finales con gráfico
+21
+
+# Resultados esperados SSTF:
+# Secuencia óptima local: 53 → 65 → 67 → 37 → 14 → 98 → 122 → 124 → 183
+# Movimientos por acceso:
+#   53→65:   12
+#   65→67:   2
+#   67→37:   30
+#   37→14:   23
+#   14→98:   84
+#   98→122:  24
+#   122→124: 2
+#   124→183: 59
+# Total: 236 cilindros
+# Promedio: 29.5 cilindros/solicitud
+# 
+# Mejora sobre FCFS: 63% menos movimiento (640 → 236)
+# Observación: Selecciona siempre el cilindro más cercano
+
+# Salir
+0

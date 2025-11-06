@@ -1,0 +1,71 @@
+# ===================================================================
+# EXPERIMENTO: Planificación de Disco - FCFS
+# ===================================================================
+# Objetivo: Demostrar comportamiento de FCFS (First Come First Served)
+# Secuencia de cilindros: 98, 183, 37, 122, 14, 124, 65, 67
+# Posición inicial: 53
+# ===================================================================
+
+# Paso 1: Configurar algoritmo FCFS
+20
+1
+
+# Paso 2: Agregar secuencia de solicitudes de disco
+18
+98
+
+18
+183
+
+18
+37
+
+18
+122
+
+18
+14
+
+18
+124
+
+18
+65
+
+18
+67
+
+# Paso 3: Ver estado inicial del disco
+21
+
+# Paso 4: Procesar todas las solicitudes
+19
+19
+19
+19
+19
+19
+19
+19
+
+# Paso 5: Ver estadísticas finales con gráfico
+21
+
+# Resultados esperados FCFS:
+# Secuencia: 53 → 98 → 183 → 37 → 122 → 14 → 124 → 65 → 67
+# Movimientos por acceso:
+#   53→98:   45
+#   98→183:  85
+#   183→37:  146
+#   37→122:  85
+#   122→14:  108
+#   14→124:  110
+#   124→65:  59
+#   65→67:   2
+# Total: 640 cilindros
+# Promedio: 80 cilindros/solicitud
+# 
+# Observación: Alto movimiento total, especialmente 183→37 (146)
+
+# Salir
+0
