@@ -29,30 +29,8 @@ kernel-simulator/
 ```
 
 ## 🔧 Compilación
-
-### Opción 1: Script automático
-```powershell
-.\compile.ps1
-```
-
-### Opción 2: VS Code
+### VS Code
 Presiona `F5` o `Ctrl+F5` en `Main.cpp`
-
-### Opción 3: Manual
-```powershell
-g++ -std=c++17 -c modules/cpu/*.cpp -o build/
-g++ -std=c++17 -c modules/mem/*.cpp -o build/
-g++ -std=c++17 -c modules/disk/*.cpp -o build/
-g++ -std=c++17 -c modules/io/*.cpp -o build/
-g++ -std=c++17 -c cli/CLI.cpp -o build/CLI.o
-g++ -std=c++17 kernel-sim/Main.cpp build/*.o -o kernel-sim.exe
-```
-
-## ▶️ Ejecución
-
-```powershell
-.\kernel-sim.exe
-```
 
 ## 📋 Menú Principal
 
